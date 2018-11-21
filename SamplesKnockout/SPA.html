@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>KO Webmail</title>
+    <script type="text/javascript" src="SPA_arquivos/jquery-1.js"></script>
+    <script type="text/javascript" src="SPA_arquivos/knockout-3.js"></script>
+    <script src="SPA_arquivos/sammy.js" type="text/javascript"></script>
+    <link rel="Stylesheet" href="SPA_arquivos/coderunner.css">
+    <link rel="Stylesheet" href="SPA_arquivos/webmail.css">
+</head>
+<body>
+    <!-- Folders -->
+    <ul class="folders" data-bind="foreach: folders">
+        <li data-bind="text: $data, 
+                       css: { selected: $data == $root.chosenFolderId() },
+                       click: $root.goToFolder" class="selected">Inbox</li>
+    
+        <li data-bind="text: $data, 
+                       css: { selected: $data == $root.chosenFolderId() },
+                       click: $root.goToFolder" class="">Archive</li>
+    
+        <li data-bind="text: $data, 
+                       css: { selected: $data == $root.chosenFolderId() },
+                       click: $root.goToFolder" class="">Sent</li>
+    
+        <li data-bind="text: $data, 
+                       css: { selected: $data == $root.chosenFolderId() },
+                       click: $root.goToFolder" class="">Spam</li>
+    </ul>
+
+    <!-- Mails grid -->
+    <table class="mails" data-bind="with: chosenFolderData">
+        <thead><tr><th>From</th><th>To</th><th>Subject</th><th>Date</th></tr></thead>
+        <tbody data-bind="foreach: mails">
+            <tr data-bind="click: $root.goToMail">
+                <td data-bind="text: from">Abbot &lt;oliver@smoke-stage.xyz&gt;</td>
+                <td data-bind="text: to">steve@example.com</td>
+                <td data-bind="text: subject">Booking confirmation #389629244</td>
+                <td data-bind="text: date">May 25, 2011</td>
+            </tr>     
+        
+            <tr data-bind="click: $root.goToMail">
+                <td data-bind="text: from">Addison Begoat &lt;upton.oprdrusson@pear-income.xyz&gt;</td>
+                <td data-bind="text: to">steve@example.com</td>
+                <td data-bind="text: subject">FW: Associate advice</td>
+                <td data-bind="text: date">May 7, 2011</td>
+            </tr>     
+        
+            <tr data-bind="click: $root.goToMail">
+                <td data-bind="text: from">Allistair &lt;leroy72@plane-railway.xyz&gt;</td>
+                <td data-bind="text: to">steve@example.com</td>
+                <td data-bind="text: subject">RE: Phone call tomorrow 5 o'clock</td>
+                <td data-bind="text: date">May 19, 2011</td>
+            </tr>     
+        
+            <tr data-bind="click: $root.goToMail">
+                <td data-bind="text: from">emmanuel26@ghost.xyz</td>
+                <td data-bind="text: to">steve@example.com</td>
+                <td data-bind="text: subject">Completing basketball project</td>
+                <td data-bind="text: date">May 22, 2011</td>
+            </tr>     
+        
+            <tr data-bind="click: $root.goToMail">
+                <td data-bind="text: from">jamalia.alnismith1@twigdad.xyz</td>
+                <td data-bind="text: to">steve@example.com</td>
+                <td data-bind="text: subject">FW: Can you get DE to resubmit accounts?</td>
+                <td data-bind="text: date">Apr 26, 2011</td>
+            </tr>     
+        
+            <tr data-bind="click: $root.goToMail">
+                <td data-bind="text: from">lionel.qugy@cribsmoke.xyz</td>
+                <td data-bind="text: to">steve@example.com</td>
+                <td data-bind="text: subject">RE: Catch up at 9:00 to finalise rain spec</td>
+                <td data-bind="text: date">May 22, 2011</td>
+            </tr>     
+        
+            <tr data-bind="click: $root.goToMail">
+                <td data-bind="text: from">Madison Lalinesson &lt;melinda.gofagy@wing-language2.xyz&gt;</td>
+                <td data-bind="text: to">steve@example.com</td>
+                <td data-bind="text: subject">RE: Pencil scenarios</td>
+                <td data-bind="text: date">May 19, 2011</td>
+            </tr>     
+        
+            <tr data-bind="click: $root.goToMail">
+                <td data-bind="text: from">rajah.nukripyford@cast92.xyz</td>
+                <td data-bind="text: to">steve@example.com</td>
+                <td data-bind="text: subject">Flavor benefit gig</td>
+                <td data-bind="text: date">Apr 28, 2011</td>
+            </tr>     
+        
+            <tr data-bind="click: $root.goToMail">
+                <td data-bind="text: from">Sandra Juanhison &lt;yoshi.mostaline72@facefruit.xyz&gt;</td>
+                <td data-bind="text: to">steve@example.com</td>
+                <td data-bind="text: subject">RE: Apparel5 network is back up</td>
+                <td data-bind="text: date">May 8, 2011</td>
+            </tr>     
+        
+            <tr data-bind="click: $root.goToMail">
+                <td data-bind="text: from">Sylvester &lt;rose.va@bunpig98.xyz&gt;</td>
+                <td data-bind="text: to">steve@example.com</td>
+                <td data-bind="text: subject">Feedback requested by Ayanna Nuyo</td>
+                <td data-bind="text: date">May 1, 2011</td>
+            </tr>     
+        
+            <tr data-bind="click: $root.goToMail">
+                <td data-bind="text: from">veronica@heart.xyz</td>
+                <td data-bind="text: to">steve@example.com</td>
+                <td data-bind="text: subject">Project Book starting 6pm</td>
+                <td data-bind="text: date">May 4, 2011</td>
+            </tr>     
+        
+            <tr data-bind="click: $root.goToMail">
+                <td data-bind="text: from">XLN &lt;basia@framehome.xyz&gt;</td>
+                <td data-bind="text: to">steve@example.com</td>
+                <td data-bind="text: subject">RE: Remember Whoopi's joke</td>
+                <td data-bind="text: date">May 8, 2011</td>
+            </tr>     
+        </tbody>
+    </table>
+
+    <!-- Chosen mail -->
+    <div class="viewMail" data-bind="with: chosenMailData"></div>
+
+    <script type="text/javascript">
+        function WebmailViewModel() {
+            // Data
+            var self = this;
+            self.folders = ['Inbox', 'Archive', 'Sent', 'Spam'];
+            self.chosenFolderId = ko.observable();
+            self.chosenFolderData = ko.observable();
+            self.chosenMailData = ko.observable();
+
+            // Behaviours    
+            self.goToFolder = function (folder) { location.hash = folder };
+            self.goToMail = function (mail) { location.hash = mail.folder + '/' + mail.id };
+
+            // Client-side routes    
+            Sammy(function () {
+                this.get('#:folder', function () {
+                    self.chosenFolderId(this.params.folder);
+                    self.chosenMailData(null);
+                    $.get("/mail", { folder: this.params.folder }, self.chosenFolderData);
+                });
+
+                this.get('#:folder/:mailId', function () {
+                    self.chosenFolderId(this.params.folder);
+                    self.chosenFolderData(null);
+                    $.get("/mail", { mailId: this.params.mailId }, self.chosenMailData);
+                });
+
+                this.get('', function () { this.app.runRoute('get', '#Inbox') });
+            }).run();
+        };
+
+        ko.applyBindings(new WebmailViewModel());
+    </script>
+
+
+</body></html>
